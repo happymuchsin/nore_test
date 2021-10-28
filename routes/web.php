@@ -25,6 +25,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/user', [UserController::class, 'index'])->name('user');
 Route::get('user/json', [UserController::class, 'json']);
+Route::get('user/{id}/edit', [UserController::class, 'edit']);
+Route::post('user/crup', [UserController::class, 'crup']);
+Route::get('user/delete/{id}', [UserController::class, 'destroy'])->middleware('admin');
+Route::get('user/excel', [UserController::class, 'excel'])->middleware('admin');
+Route::get('user/pdf', [UserController::class, 'pdf'])->middleware('admin');
 
 Route::get('/list', [ListItemController::class, 'index'])->name('list');
 Route::get('list/json', [ListItemController::class, 'json']);

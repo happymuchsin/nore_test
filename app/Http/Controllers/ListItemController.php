@@ -25,21 +25,6 @@ class ListItemController extends Controller
             ->make(true);
     }
 
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-            'name' => 'required',
-            'price' => 'required|integer',
-        ]);
-
-        ListItem::create([
-            'name' => $request->name,
-            'price' => $request->price,
-        ]);
-
-        return response()->json(['success' => true]);
-    }
-
     public function crup(Request $request)
     {
         $this->validate($request, [
